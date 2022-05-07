@@ -1,6 +1,6 @@
 const { obterPessoas } = require('./service');
 
-Array.prototype.meuFilter(function (callback) {
+Array.prototype.meuFilter = function (callback) {
     const lista = [];
     for(index in this) {
         const item = this[index];
@@ -9,7 +9,7 @@ Array.prototype.meuFilter(function (callback) {
         lista.push(item);
     }
     return lista;
-})
+}
 
 async function main() {
     try{
@@ -21,7 +21,7 @@ async function main() {
         // });
 
         // const names = familiaLars.map(pessoa => pessoa.name);
-        const familiaLars = result.meuFilter((item, index, lista) => item.name.toLowerCase().indexOf('lars') != -1)
+        const familiaLars = results.meuFilter((item, index, lista) => item.name.toLowerCase().indexOf('lars') != -1)
         const names = familiaLars.map(pessoa => pessoa.name);
         console.log(names);
     } catch (error) {
